@@ -16,11 +16,6 @@ JupyterDash.infer_jupyter_proxy_config()
 app.config.suppress_callback_exceptions = True
 
 # Read the airline data into pandas dataframe
-# airline_data =  pd.read_csv('/Users/bhavjot/Downloads/airline_2m.csv', 
-#                             encoding = "ISO-8859-1",
-#                             dtype={'Div1Airport': str, 'Div1TailNum': str, 
-#                                    'Div2Airport': str, 'Div2TailNum': str})
-
 airline_data =  pd.read_csv('https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DV0101EN-SkillsNetwork/Data%20Files/airline_data.csv', 
                             encoding = "ISO-8859-1",
                             dtype={'Div1Airport': str, 'Div1TailNum': str, 
@@ -53,7 +48,7 @@ def compute_data_choice_1(df):
 
     # Application layout
 app.layout = html.Div(children=[ html.H1('US Domestic Airline Flights Performance', 
-                                style={'textAlign': 'center', 'color': '#503D36',
+                                style={'textAlign': 'left', 'color': '#503D36',
                                 'font-size': 24}),
                                 # TODO1: Add title to the dashboard
                                 
@@ -71,14 +66,13 @@ app.layout = html.Div(children=[ html.H1('US Domestic Airline Flights Performanc
                                         ),
                                         # TODO2: Add a dropdown
                                         html.Div([
-                                            dcc.Dropdown(
-                                                id='input-type',
+                                            dcc.Dropdown(id='input-type',
                                                 options=[
                                                     {'label': 'Yearly Airline Performance Report', 'value': 'OPT1'},
                                                     {'label': 'Yearly Airline Delay Report', 'value': 'OPT2'}
                                                 ],
                                                 placeholder="Select a report type",
-                                                style={'width':'50%', 'padding':'12px', 'font size':'20px', 'text-align':'center'}
+                                                style={'width':'80%', 'padding':'3px', 'font size':'20px', 'text-align':'center'}
                                             )
 
                                         ]),
